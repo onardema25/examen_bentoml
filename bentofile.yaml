@@ -1,0 +1,25 @@
+service: "src.service:svc"
+
+labels:
+  owner: "Andrea"
+  project: "Admissions Prediction"
+
+description: "API for predicting the chance of admission of a student in a university"
+
+docker:
+  dockerfile_template: "./Dockerfile.template"
+  base_image: python:3.8-slim
+
+include:
+  - src/
+  - data/
+
+python:
+  packages:
+    - bentoml
+    - fastapi
+    - uvicorn
+    - pydantic
+    - pandas
+    - scikit-learn
+    - numpy
